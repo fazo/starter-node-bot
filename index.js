@@ -57,7 +57,7 @@ controller.hears(['Bluetooth off!'], ['direct_mention'], function (bot, message)
 
 controller.hears(['^Message Ivan: '], ['direct_mention'], function (bot, message) {
   bot.reply(message, 'On it!')
-  request("https://maker.ifttt.com/trigger/sms_ivan/with/key/dbUpwEFGIaKw9rnOyLsRqJ", {"value1": message.text.substring(message.text.indexOf(":")+2, message.text.length)}, function(error, response, body) {console.log("yea")});
+  request("https://maker.ifttt.com/trigger/sms_ivan/with/key/dbUpwEFGIaKw9rnOyLsRqJ", {"value1": message.text.substring(message.text.indexOf(":")+2, message.text.length)}, function(error, response, body) {console.log(response});
 })
 
 controller.hears('.*', ['mention'], function (bot, message) {
