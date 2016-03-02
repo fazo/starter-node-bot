@@ -1,4 +1,5 @@
 var Botkit = require('botkit')
+var request = require('request');
 
 // Expect a SLACK_TOKEN environment variable
 var slackToken = process.env.SLACK_TOKEN
@@ -33,6 +34,13 @@ controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
 
 controller.hears(['420blazeit'], ['direct_mention'], function (bot, message) {
   bot.reply(message, 'blazeit.')
+})
+
+controller.hears(['Tell Ivan to fuck off, please!'], ['direct_mention'], function (bot, message) {
+  bot.reply(message, 'Right away!')
+  request("https://maker.ifttt.com/trigger/email_request/with/key/dbUpwEFGIaKw9rnOyLsRqJ", function(error, response, body) {
+    bot.reply('All done!');
+  });
 })
 
 controller.hears('.*', ['mention'], function (bot, message) {
