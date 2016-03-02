@@ -43,6 +43,18 @@ controller.hears(['Tell Ivan to fuck off, please!'], ['direct_mention'], functio
   });
 })
 
+controller.hears(['Bluetooth on!'], ['direct_mention'], function (bot, message) {
+  bot.reply(message, 'On it!')
+  request("https://maker.ifttt.com/trigger/phone_bluetooth_on/with/key/dbUpwEFGIaKw9rnOyLsRqJ", function(error, response, body) {
+  });
+})
+
+controller.hears(['Bluetooth off!'], ['direct_mention'], function (bot, message) {
+  bot.reply(message, 'Switching that shit right off, Captain!')
+  request("https://maker.ifttt.com/trigger/phone_bluetooth_off/with/key/dbUpwEFGIaKw9rnOyLsRqJ", function(error, response, body) {
+  });
+})
+
 controller.hears('.*', ['mention'], function (bot, message) {
   bot.reply(message, 'You really do care about me. :heart:')
 })
