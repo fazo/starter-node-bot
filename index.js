@@ -61,7 +61,7 @@ controller.hears(['^Message Ivan: '], ['direct_mention'], function (bot, message
   method: 'post',
   body: {"value1": message.text.substring(message.text.indexOf(":")+2, message.text.length)},
   json: true,
-  url: https://maker.ifttt.com/trigger/sms_ivan/with/key/dbUpwEFGIaKw9rnOyLsRqJ
+  url: "https://maker.ifttt.com/trigger/sms_ivan/with/key/dbUpwEFGIaKw9rnOyLsRqJ"
 }
   request(options, function(error, response, body) {console.log(response)});
 })
